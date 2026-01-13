@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskBoard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div>
+          <h1>TaskBoard</h1>
+          <p class="muted">A minimal Kanban-style task board</p>
+        </div>
+        <button id="newTaskBtn" class="btn primary">New task</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="board" aria-label="Task board">
+        <div class="column" data-status="todo">
+          <div class="column-header">
+            <h2>To Do</h2>
+            <span class="pill" id="count-todo">0</span>
+          </div>
+          <div class="column-body" id="col-todo"></div>
+        </div>
+
+        <div class="column" data-status="in_progress">
+          <div class="column-header">
+            <h2>In Progress</h2>
+            <span class="pill" id="count-in_progress">0</span>
+          </div>
+          <div class="column-body" id="col-in_progress"></div>
+        </div>
+
+        <div class="column" data-status="done">
+          <div class="column-header">
+            <h2>Done</h2>
+            <span class="pill" id="count-done">0</span>
+          </div>
+          <div class="column-body" id="col-done"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-backdrop hidden" id="modalBackdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <h3 id="modalTitle">New task</h3>
+          <button id="closeModalBtn" class="icon-btn" aria-label="Close">×</button>
+        </div>
+
+        <form id="taskForm" class="modal-body">
+          <input type="hidden" id="taskId" />
+
+          <label>
+            Title
+            <input id="titleInput" type="text" maxlength="80" required />
+          </label>
+
+          <label>
+            Description
+            <textarea id="descInput" rows="4" maxlength="500" placeholder="Optional"></textarea>
+          </label>
+
+          <label>
+            Status
+            <select id="statusInput">
+              <option value="todo">To Do</option>
+              <option value="in_progress">In Progress</option>
+              <option value="done">Done</option>
+            </select>
+          </label>
+
+          <div class="modal-actions">
+            <button type="button" id="deleteBtn" class="btn danger hidden">Delete</button>
+            <div class="spacer"></div>
+            <button type="button" id="cancelBtn" class="btn">Cancel</button>
+            <button type="submit" class="btn primary" id="saveBtn">Save</button>
+          </div>
+
+          <p class="muted small" id="formHint"></p>
+        </form>
+      </div>
+    </div>
+
+    <footer class="container footer">
+      <span class="muted small">Local data is stored in <code>data/db.json</code> on the server.</span>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

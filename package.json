@@ -1,0 +1,33 @@
+{
+  "name": "taskboard-webapp",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "A simple Task Board web app (Express + file-based JSON DB) ready to push to GitHub.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "lint": "node -e \"console.log('No linter configured.');\""
+  },
+  "keywords": [
+    "webapp",
+    "express",
+    "tasks",
+    "kanban",
+    "crud"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "nanoid": "^5.0.7",
+    "lowdb": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
